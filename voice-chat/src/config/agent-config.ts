@@ -46,7 +46,7 @@ export const agentConfig = {
   voice: "ryan",
   language: "ENG",
   model: "base",
-  first_sentence: "Hello! I'm Jordan, your AI assistant. How may I help you today?"
+  first_sentence: "Hello! I'm Dave, your AI assistant. How may I help you today?"
 } as const;
 
 export type AgentConfig = typeof agentConfig; 
