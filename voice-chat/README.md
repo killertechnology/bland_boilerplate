@@ -54,3 +54,5 @@ You can customize the AI agent's behavior by modifying the settings in `src/conf
 ## Environment Variables
 
 Required environment variables in `.env.local`:
+
+Troubleshoot with bland -- NO TOKEN FOUND / NO AGENT FOUND
