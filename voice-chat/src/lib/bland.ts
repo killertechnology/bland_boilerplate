@@ -1,6 +1,6 @@
 import { agentConfig } from '../config/agent-config';
 
-const BLAND_API_KEY = process.env.NEXT_PUBLIC_BLAND_API_KEY!;
+const BLAND_API_KEY = process.env.NEXT_PUBLIC_BLAND_API_KEY;
 const BLAND_API_URL = 'https://api.bland.ai';
 const BLAND_WEB_URL = 'https://web.bland.ai';
 
@@ -10,9 +10,10 @@ if (!BLAND_API_KEY) {
 
 export async function createWebAgent() {
   try {
-    console.log('Creating new web agent...');
     
-    const response = await fetch(`${BLAND_API_URL}/v1/agents`, {
+    var agentUrl = `${BLAND_API_URL}/v1/agents`;
+    console.log('Creating new web agent...' + BLAND_API_KEY);
+    const response = await fetch(agentUrl, {
       method: 'POST',
       headers: {
         'authorization': BLAND_API_KEY,
@@ -38,7 +39,10 @@ export async function createWebAgent() {
 
 export async function getSessionToken(agentId: string) {
   try {
-    const response = await fetch(`${BLAND_WEB_URL}/v1/agents/${agentId}/authorize`, {
+    var sessionUrl = `${BLAND_API_URL}/v1/agents/${agentId}/authorize`;
+    console.log("Session URL: " + sessionUrl);
+    console.log("AgentId: " + agentId)
+    const response = await fetch(sessionUrl, {
       method: 'POST',
       headers: {
         'authorization': BLAND_API_KEY,

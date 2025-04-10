@@ -183,10 +183,16 @@ export default function VoiceChat({ agentId }: VoiceChatProps) {
         body: JSON.stringify({ agentId })
       })
       
-      const data = await response.json()
+
+      if (!response.ok) {
+        console.log(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('API Response:', data);
 
       if (!data.token) {
-        throw new Error('No token received')
+        console.log('No token received');
       }
 
       setStatus('Connecting to Bland AI...')

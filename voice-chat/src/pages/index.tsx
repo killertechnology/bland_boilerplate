@@ -8,22 +8,24 @@ export default function HomePage() {
   const [agentId, setAgentId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+/* 
   useEffect(() => {
     const initAgent = async () => {
       setIsLoading(true);
       try {
+        
         const response = await createWebAgent();
         if (!response.agent?.agent_id) {
           throw new Error('Failed to create web agent');
         }
-        setAgentId(response.agent.agent_id);
+        setAgentId(response.agent.agent_id); 
       } catch (err) {
         console.error('Agent creation error:', err);
-        setError(err instanceof Error ? err.message : 'Failed to create agent');
+        //setError(err instanceof Error ? err.message : 'Failed to create agent');
       } finally {
         setIsLoading(false);
       }
+       
     };
 
     initAgent();
@@ -32,7 +34,7 @@ export default function HomePage() {
   if (isLoading) {
     return <LoadingSpinner />;
   }
-
+*/
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-8 flex items-center justify-center">
       <div className="max-w-2xl w-full mx-auto space-y-6">
